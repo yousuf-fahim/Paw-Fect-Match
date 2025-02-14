@@ -30,7 +30,7 @@ app.use('/dashboard', DashboardRouter);
 app.use(requireAuth);
 app.use(petRouter);
 app.use('/form', AdoptFormRoute);
-app.use('/admin', AdminRouter); // Use AdminRoute
+app.use('/admin', AdminRouter); 
 
 mongoose.connect(process.env.mongooseURL)
     .then(() => {
