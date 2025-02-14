@@ -1,26 +1,23 @@
 {
+  "name": "Paw-Fect Match",
+  "description": "Paw-Fect Match is a website where users can either give a pet up for adoption or adopt one. The admin decides if a pet can be put up for adoption and reviews adoption applications. This new version includes JWT authentication, OTP verification, user profiles, and an enhanced admin dashboard with data visualization.",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "@remix-run/cloudflare": "^2.15.3",
-    "@remix-run/deno": "^2.15.3",
-    "@remix-run/express": "^2.15.3",
     "express": "^4.21.2",
     "heroku": "^8.7.1",
     "mongodb": "^6.13.0",
     "mongoose": "^8.10.0",
-    "nodemailer": "^6.10.0",
-    "package.json": "^2.0.1"
+    "nodemailer": "^6.10.0"
   },
-  "name": "Paw-Fect Match",
-  "description": "Paw-Fect Match is a website where users can either give a pet up for adoption or adopt one. The admin decides if a pet can be put up for adoption and reviews adoption applications. This new version includes JWT authentication, OTP verification, user profiles, and an enhanced admin dashboard with data visualization.",
-  "version": "1.0.0",
-  "main": "mailer.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "@remix-run/dev": "^2.15.3"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@remix-run/dev": "^2.15.3"
-  }
+  "license": "ISC"
 }
