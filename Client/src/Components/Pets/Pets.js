@@ -26,8 +26,12 @@ const Pets = () => {
           throw new Error('Failed to fetch pets data');
         }
         const data = await response.json();
-        setPetsData(data);
-        setError(null); 
+        if (Array.isArray(data)) {
+          setPetsData(data);
+          setError(null);
+        } else {
+          throw new Error('Fetched data is not an array');
+        }
       } catch (error) {
         console.error(error);
         setError('An error occurred while fetching the data');
@@ -39,12 +43,12 @@ const Pets = () => {
     fetchRequests();
   }, [user]);
 
-  const filteredPets = petsData.filter((pet) => {
+  const filteredPets = Array.isArray(petsData) ? petsData.filter((pet) => {
     if (filter === "all") {
       return true;
     }
     return pet.type === filter;
-  });
+  }) : [];
 
   return (
     <>

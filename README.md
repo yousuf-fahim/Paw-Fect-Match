@@ -1,7 +1,7 @@
 # Paw-Fect Match v2.0: A Pet Adoption System | MERN Stack Portfolio with JWT Auth, OTP Verification & Admin Panel
 Paw-Fect Match is a website where users can either give a pet up for adoption or adopt one. The admin decides if a pet can be put up for adoption and reviews adoption applications. This new version includes JWT authentication, OTP verification, user profiles, and an enhanced admin dashboard with data visualization.
 
-[Click to get older version Paw-Fect Match V1.0 ](https://github.com/KaShiekzmi/Paw-Fect Match-A-Pet-Adoption-System-MERN-Stack-Portfolio-with-Admin-Panel)
+[Click to get older version Paw-Fect Match V1.0 ](https://github.com/yousuf-fahim/Paw-Fect Match-A-Pet-Adoption-System-MERN-Stack-Portfolio-with-Admin-Panel)
 
 ### Watch Paw-Fect Match in Action
 
@@ -38,7 +38,7 @@ Kindly be aware that this project is optimized for laptop screens and is not res
 ## Installation
 Follow these steps to set up the project locally:
 
-1. Clone the repository: `git clone https://github.com/KaShiekzmi/Paw-Fect Match-v2.0-JWT-OTP-Admin-Dashboard.git`
+1. Clone the repository: `git clone https://github.com/yousuf-fahim/Paw-Fect Match-v2.0-JWT-OTP-Admin-Dashboard.git`
 2. Install dependencies: `npm install`
 3. Create a .env file in the server directory with the following variables:
    - mongooseURL=mongodb+srv://username:password@cluster-url.mongodb.net/?retryWrites=true&w=majority&appName=Paw-Fect Match-pet-adoption-system
@@ -75,5 +75,5 @@ We welcome contributions to improve Paw-Fect Match! To contribute, follow these 
 
 ## Contact Information
 For questions, please contact 
-- [GitHub](https://github.com/kashiekzmi)
+- [GitHub](https://github.com/yousuf-fahim)
 - [LinkedIn](https://www.linkedin.com/in/kashiekzmi)

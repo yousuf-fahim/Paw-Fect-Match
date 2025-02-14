@@ -14,14 +14,14 @@ const Footer = (props) => {
       <div className="below-footer">
         <p>
           You can reach me at{" "}
-          <a className="mail-links" href="mailto:kashifkzmi5@gmail.com">
-            kashifkzmi5@gmail.com
+          <a className="mail-links" href="mailto:pawfect.mew@gmail.com">
+          pawfect.mew@gmail.com
           </a>
         </p>
         <p>
           <a
             className="contact-links"
-            href="https://www.linkedin.com/in/kashiekzmi/"
+            href="https://www.linkedin.com/company/bubt/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -30,7 +30,7 @@ const Footer = (props) => {
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a
             className="contact-links"
-            href="https://github.com/KaShiekzmi"
+            href="https://github.com/yousuf-fahim"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -39,7 +39,7 @@ const Footer = (props) => {
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a
             className="contact-links"
-            href="https://www.instagram.com/kaxhie_x/"
+            href="https://www.instagram.com/yousuf.fahim27/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -48,14 +48,14 @@ const Footer = (props) => {
           &nbsp;&nbsp;|&nbsp;&nbsp;
           <a
             className="contact-links"
-            href="https://api.whatsapp.com/qr/GXRHM7PEPNOKA1?autoload=1&app_absent=0"
+            href="https://wa.me/8801706561532"
             target="_blank"
             rel="noopener noreferrer"
           >
             <i className="fa fa-whatsapp"></i> WhatsApp
           </a>
         </p>
-        <p>&copy; 2023 Kashif Abbas Kazmi</p>
+        <p>&copy; 2025 Team Paw-fact</p>
       </div>
     </footer>
   );
