@@ -18,11 +18,9 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "API is working!" });
 });
 
-
-
 // CORS configuration
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://pawfect.fai.codes', 'https://pawfect-match-lyart.vercel.app/', 'https://paw-fect-match.netlify.app/'], // Replace with your allowed origins
+    origin: ['http://localhost:3000', 'https://pawfect.fai.codes', 'https://pawfect-match-lyart.vercel.app', 'https://paw-fect-match.netlify.app'], // Replace with your allowed origins
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204

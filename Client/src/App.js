@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/NavBar/Navbar";
 import Home from "./Components/Home/Home";
@@ -13,12 +13,7 @@ import Auth from "./Components/Auth/Auth";
 import { useAuthContext } from './hooks/UseAuthContext';
 import "./App.css";
 import FourOhFourPage from "./Components/404/FourOhFourPage";
-
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
-app.use(cors());
+import axiosInstance from "./axiosInstance";
 
 const Layout = ({ children }) => (
   <>
@@ -34,9 +29,26 @@ const ProtectedRoute = ({ user, children }) => {
 
 const App = () => {
   const { user } = useAuthContext();
+  const [testMessage, setTestMessage] = useState("");
+
+  useEffect(() => {
+    const fetchTestMessage = async () => {
+      try {
+        const response = await axiosInstance.get("/api/test");
+        setTestMessage(response.data.message);
+      } catch (error) {
+        console.error("Error fetching test message:", error);
+      }
+    };
+
+    fetchTestMessage();
+  }, []);
 
   return (
     <Router>
+      <div>
+        <p>{testMessage}</p>
+      </div>
       <Routes>
         <Route 
           path="/" 

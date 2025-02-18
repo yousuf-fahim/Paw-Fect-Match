@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PetsViewer from "./PetsViewer";
 import { useAuthContext } from "../../hooks/UseAuthContext";
+import axiosInstance from "../../axiosInstance";
 
 const Pets = () => {
   const [filter, setFilter] = useState("all");
@@ -17,15 +18,12 @@ const Pets = () => {
         return;
       }
       try {
-        const response = await fetch('http://localhost:4000/approvedPets', {
+        const response = await axiosInstance.get('/approvedPets', {
           headers: {
             'Authorization': `Bearer ${user.token}`
           }
         });
-        if (!response.ok) {
-          throw new Error('Failed to fetch pets data');
-        }
-        const data = await response.json();
+        const data = response.data;
         if (Array.isArray(data)) {
           setPetsData(data);
           setError(null);
