@@ -14,6 +14,12 @@ import { useAuthContext } from './hooks/UseAuthContext';
 import "./App.css";
 import FourOhFourPage from "./Components/404/FourOhFourPage";
 
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+
 const Layout = ({ children }) => (
   <>
     <Navbar title="Paw-Fect Match" />
