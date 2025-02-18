@@ -1,79 +1,93 @@
-# Paw-Fect Match v2.0: A Pet Adoption System | MERN Stack Portfolio with JWT Auth, OTP Verification & Admin Panel
-Paw-Fect Match is a website where users can either give a pet up for adoption or adopt one. The admin decides if a pet can be put up for adoption and reviews adoption applications. This new version includes JWT authentication, OTP verification, user profiles, and an enhanced admin dashboard with data visualization.
-
-[Click to get older version Paw-Fect Match V1.0 ](https://github.com/yousuf-fahim/Paw-Fect Match-A-Pet-Adoption-System-MERN-Stack-Portfolio-with-Admin-Panel)
-
-### Watch Paw-Fect Match in Action
-
-[![Watch the video](https://github.com/user-attachments/assets/62fadd25-ea4f-46af-940b-5bab522e0e89)](https://youtu.be/SCcAGzNVuu8?si=m4Hex9oKHttvYLoj)
-
-Click the image above to watch a demo of Paw-Fect Match on YouTube.
+# Paw-Fect Match
 
 ## Introduction
-Paw-Fect Match connects pet lovers with pets in need of a home. This platform simplifies pet adoption with a user-friendly experience, now with enhanced security and functionality.
+Paw-Fect Match is a platform designed to connect pet lovers with pets in need of a home. It simplifies the adoption process with a user-friendly interface, enhanced security, and robust functionality.
 
-## New Features (V2.0)
- - JWT Authentication: Users are securely authenticated with JSON Web Tokens (JWT).
- - OTP Verification: Added extra security for users with one-time password (OTP) verification.
- - User Profiles: Each user now has a personalized profile where they can manage their information.
- - Admin Dashboard: A comprehensive dashboard with graphs showing the number of users registered and a pie chart displaying different types of pets available for adoption.
-
-## General Features
-- Users can submit a pet for adoption by filling out a form.
-- Admin reviews adoption submissions and can approve or reject them.
-- Approved pets are listed on Paw-Fect Match for potential adopters to view.
-- Users interested in adopting a pet fill out an application form.
-- Admin evaluates adoption applications to select the most suitable adopter.
-- Admin maintains a history of adopted pets and their new owners.
-- User can browse and search for available pets for adoption.
-- They can filter pets based on pet type i.e. dog, cat, fish, etc.
-- Paw-Fect Match offer detailed pet profiles with photos and descriptions.
+## Features
+- **Pet Submission:** Users can submit pets for adoption by filling out a form.
+- **Admin Review:** Admins review submissions and approve or reject them.
+- **Pet Listings:** Approved pets are listed for potential adopters to view.
+- **Adoption Application:** Users interested in adopting a pet can submit an application.
+- **Adoption Evaluation:** Admins evaluate applications to select the most suitable adopter.
+- **Adoption History:** Admins maintain records of adopted pets and their new owners.
+- **Pet Browsing & Search:** Users can browse and search for available pets.
+- **Filtering:** Pets can be filtered based on type (dog, cat, fish, etc.).
+- **Detailed Profiles:** Each pet has a profile with photos and descriptions.
 
 ## Technology Stack
-Paw-Fect Match is built using the MERN stack (MongoDB, Express.js, React, Node.js) with added JWT authentication and OTP verification.
+Paw-Fect Match is built using the **MERN** stack:
+- **MongoDB** (Database)
+- **Express.js** (Backend)
+- **React.js** (Frontend)
+- **Node.js** (Server)
+- **JWT Authentication** and **OTP Verification** for enhanced security.
 
-## **Please Note: This Project Is Designed for Laptop Screens**
-Kindly be aware that this project is optimized for laptop screens and is not responsive for mobile or tablet devices.
+## Compatibility Notice
+**This project is optimized for laptop screens** and is not responsive for mobile or tablet devices.
 
-## Installation
+## Installation Guide
 Follow these steps to set up the project locally:
 
-1. Clone the repository: `git clone https://github.com/yousuf-fahim/Paw-Fect Match-v2.0-JWT-OTP-Admin-Dashboard.git`
-2. Install dependencies: `npm install`
-3. Create a .env file in the server directory with the following variables:
-   - mongooseURL=mongodb+srv://username:password@cluster-url.mongodb.net/?retryWrites=true&w=majority&appName=Paw-Fect Match-pet-adoption-system
-   - SECRET=your_jwt_secret_key (Any random string of any length)
-   - EMAIL_USER=your_email@example.com
-   - EMAIL_APP_PASS=your_email_app_password
-5. Run the server: `nodemon server` runs the server using nodemon, a tool that enhances the development experience by automatically restarting the server on file changes.
-6. `npm start` to start front end.
+1. **Clone the Repository:**
+   ```sh
+   git clone https://github.com/yousuf-fahim/Paw-Fect-Match-v2.0-JWT-OTP-Admin-Dashboard.git
+   ```
+2. **Install Dependencies:**
+   ```sh
+   npm install
+   ```
+3. **Configure Environment Variables:**
+   Create a `.env` file in the `server` directory and add the following variables:
+   ```env
+   mongooseURL=mongodb+srv://username:password@cluster-url.mongodb.net/?retryWrites=true&w=majority&appName=Paw-Fect-Match-pet-adoption-system
+   SECRET=your_jwt_secret_key  # Any random string
+   EMAIL_USER=your_email@example.com
+   EMAIL_APP_PASS=your_email_app_password
+   ```
+4. **Run the Server:**
+   ```sh
+   nodemon server  # Automatically restarts on file changes
+   ```
+5. **Start the Frontend:**
+   ```sh
+   npm start
+   ```
 
-## Guide for Setting Up an EMAIL_APP_PASS (for emails)
-To enable your app to send emails through your Gmail account, you’ll need to generate an App Password. Follow the steps below:
+## Setting Up an Email App Password
+To enable your app to send emails via Gmail, follow these steps:
 
-1. Go to the Google Account Security Page:
-   - Visit Google Account Security and make sure 2-Step Verification is enabled.
-2. Generate an App Password:
-    - Scroll down to the "Signing in to Google" section.
-    - Click on App Passwords.
-    - Select the app (e.g., "Mail") and the device (e.g., "Other") for which you are generating the password.
-    - Google will provide a App Password.
-4. Use the Generated App Password:
-    - Copy the App Password and paste it into the .env file under the EMAIL_APP_PASS field:
-    - EMAIL_APP_PASS=your_generated_app_password
+1. **Enable 2-Step Verification:**
+   - Visit your Google Account Security page and ensure **2-Step Verification** is enabled.
+2. **Generate an App Password:**
+   - Navigate to **Signing in to Google** > **App Passwords**.
+   - Select the app (e.g., "Mail") and device (e.g., "Other").
+   - Copy the generated password.
+3. **Update the `.env` File:**
+   ```env
+   EMAIL_APP_PASS=your_generated_app_password
+   ```
 
-### Additional Notes
-- Ensure you have Node.js and npm installed on your machine.
+## Prerequisites
+- Ensure **Node.js** and **npm** are installed on your system.
 
 ## Contributing
-We welcome contributions to improve Paw-Fect Match! To contribute, follow these steps:
-- Fork the repository.
-- Create a new branch: git checkout -b feature-new-feature
-- Make your changes and commit them: git commit -m 'Add new feature'
-- Push to the branch: git push origin feature-new-feature
-- Create a pull request explaining your changes.
+We welcome contributions to improve Paw-Fect Match! To contribute:
 
-## Contact Information
-For questions, please contact 
-- [GitHub](https://github.com/yousuf-fahim)
-- [LinkedIn](https://www.linkedin.com/in/kashiekzmi)
+1. **Fork the repository.**
+2. **Create a new branch:**
+   ```sh
+   git checkout -b feature-new-feature
+   ```
+3. **Make changes and commit:**
+   ```sh
+   git commit -m "Add new feature"
+   ```
+4. **Push to your branch:**
+   ```sh
+   git push origin feature-new-feature
+   ```
+5. **Submit a pull request** with a description of your changes.
+
+---
+Thank you for supporting Paw-Fect Match! 🐾
+
