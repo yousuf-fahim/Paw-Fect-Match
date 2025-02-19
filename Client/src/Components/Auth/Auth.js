@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLogin } from '../../hooks/useLogin';
 import { useSignup } from '../../hooks/useSignup';
+import axiosInstance from '../../axiosInstance';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -81,11 +82,7 @@ const Auth = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://pawfect-match-b8jp.onrender.com/api/genotp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-      });
+      const response = await axiosInstance.post('/api/genotp', { name, email, password });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -114,11 +111,7 @@ const Auth = () => {
 
 
     try {
-      const response = await fetch('https://pawfect-match-b8jp.onrender.com/api/verifyotp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, otp }),
-      });
+      const response = await axiosInstance.post('/api/verifyotp', { email, otp });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -148,11 +141,7 @@ const Auth = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://pawfect-match-b8jp.onrender.com/api/forgototp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
+      const response = await axiosInstance.post('/api/forgototp', { email });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -179,11 +168,7 @@ const Auth = () => {
     setIsForgotLoading(true)
     e.preventDefault()
     try {
-      const response = await fetch('https://pawfect-match-b8jp.onrender.com/update-password', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, newPassword, newConfirmPassword }),
-      });
+      const response = await axiosInstance.put('/update-password', { email, newPassword, newConfirmPassword });
 
       if (!response.ok) {
         const errorData = await response.json();
