@@ -13,7 +13,8 @@
     "heroku": "^8.7.1",
     "mongodb": "^6.13.0",
     "mongoose": "^8.10.0",
-    "nodemailer": "^6.10.0"
+    "nodemailer": "^6.10.0",
+    "render": "^0.1.4"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.15.3"
