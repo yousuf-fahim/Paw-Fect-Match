@@ -20,7 +20,7 @@ const Profile = () => {
         const newEmail = tempValues.email.toLowerCase();
 
         try {
-            const response = await fetch('https://pawfect.fai.codes/update', {
+            const response = await fetch('https://pawfect-match-b8jp.onrender.com/update', {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,

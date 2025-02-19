@@ -13,7 +13,7 @@ const AdoptingRequests = () => {
 
   const fetchForms = useCallback(async () => {
     try {
-      const response = await fetch('https://pawfect.fai.codes/form/getForms', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/form/getForms', {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -32,7 +32,7 @@ const AdoptingRequests = () => {
 
   const fetchPets = useCallback(async () => {
     try {
-      const response = await fetch('https://pawfect.fai.codes/approvedPets',{
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/approvedPets',{
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -122,7 +122,7 @@ const AdoptingRequests = () => {
           <div className='popup-content'>
             <div className='pet-view-card'>
               <div className='pet-card-pic'>
-                <img src={`https://pawfect.fai.codes/images/${selectedPet.filename}`} alt={selectedPet.name} />
+                <img src={`https://pawfect-match-b8jp.onrender.com/images/${selectedPet.filename}`} alt={selectedPet.name} />
               </div>
               <div className='pet-card-details'>
                 <h2>{selectedPet.name}</h2>

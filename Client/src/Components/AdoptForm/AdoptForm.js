@@ -38,7 +38,7 @@ function AdoptForm(props) {
 
       setIsSubmitting(true)
 
-      const response = await fetch('https://pawfect.fai.codes/form/save', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/form/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ function AdoptForm(props) {
       <div className="form-pet-container">
         <div className="pet-details">
           <div className="pet-pic">
-            <img src={`https://pawfect.fai.codes/images/${props.pet.filename}`} alt={props.pet.name} />
+            <img src={`https://pawfect-match-b8jp.onrender.com/images/${props.pet.filename}`} alt={props.pet.name} />
           </div>
           <div className="pet-info">
             <h2>{props.pet.name}</h2>

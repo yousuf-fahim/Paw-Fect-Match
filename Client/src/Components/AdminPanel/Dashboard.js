@@ -9,11 +9,11 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userResponse = await fetch('https://pawfect.fai.codes/Dashboard/user-registrations');
+                const userResponse = await fetch('https://pawfect-match-b8jp.onrender.com/Dashboard/user-registrations');
                 const userData = await userResponse.json();
                 setUserData(userData);
 
-                const petResponse = await fetch('https://pawfect.fai.codes/Dashboard/pet-types');
+                const petResponse = await fetch('https://pawfect-match-b8jp.onrender.com/Dashboard/pet-types');
                 const petData = await petResponse.json();
                 const petDataMapped = petData.map(item => ({ name: item._id, value: item.count }));
 

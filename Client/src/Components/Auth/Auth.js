@@ -81,7 +81,7 @@ const Auth = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://pawfect.fai.codes/api/genotp', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/api/genotp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
@@ -114,7 +114,7 @@ const Auth = () => {
 
 
     try {
-      const response = await fetch('https://pawfect.fai.codes/api/verifyotp', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/api/verifyotp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
@@ -148,7 +148,7 @@ const Auth = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('https://pawfect.fai.codes/api/forgototp', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/api/forgototp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -179,7 +179,7 @@ const Auth = () => {
     setIsForgotLoading(true)
     e.preventDefault()
     try {
-      const response = await fetch('https://pawfect.fai.codes/update-password', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/update-password', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, newPassword, newConfirmPassword }),

@@ -9,7 +9,7 @@ const ApprovedRequests = () => {
 
   const fetchRequests = useCallback(async () => {
     try {
-      const response = await fetch('https://pawfect.fai.codes/approvedPets', {
+      const response = await fetch('https://pawfect-match-b8jp.onrender.com/approvedPets', {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }

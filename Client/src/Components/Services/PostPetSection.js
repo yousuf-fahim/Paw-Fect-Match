@@ -78,7 +78,7 @@ const PostPetSection = () => {
     }
 
     try {
-      const response = await fetch("https://pawfect.fai.codes/services", {
+      const response = await fetch("https://pawfect-match-b8jp.onrender.com/services", {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${user.token}`

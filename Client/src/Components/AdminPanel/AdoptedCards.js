@@ -17,7 +17,7 @@ const AdoptedCards = (props) => {
  const handleReject = async () => {
     setIsDeleting(true)
     try {
-      const response = await fetch(`https://pawfect.fai.codes/delete/${props.pet._id}`, {
+      const response = await fetch(`https://pawfect-match-b8jp.onrender.com/delete/${props.pet._id}`, {
         method: 'DELETE',
         headers: {
            'Authorization': `Bearer ${user.token}`
@@ -42,7 +42,7 @@ const AdoptedCards = (props) => {
     <div className='req-containter'>
       <div className='pet-view-card'>
         <div className='pet-card-pic'>
-          <img src={`https://pawfect.fai.codes/images/${props.pet.filename}`} alt={props.pet.name} />
+          <img src={`https://pawfect-match-b8jp.onrender.com/images/${props.pet.filename}`} alt={props.pet.name} />
         </div>
         <div className='pet-card-details'>
           <h2>{props.pet.name}</h2>

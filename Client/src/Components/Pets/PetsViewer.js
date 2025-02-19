@@ -17,7 +17,7 @@ const PetsViewer = (props) => {
   return (
     <div className='pet-view-card'>
       <div className='pet-card-pic'>
-        <img src={`https://pawfect.fai.codes/images/${props.pet.filename}`} alt={props.pet.name} />
+        <img src={`https://pawfect-match-b8jp.onrender.com/images/${props.pet.filename}`} alt={props.pet.name} />
       </div>
       <div className='pet-card-details'>
         <h2>{props.pet.name}</h2>
