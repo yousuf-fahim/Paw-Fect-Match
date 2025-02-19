@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/server.js", // Path to your Node.js entry file
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)", // Route API requests to the backend
+      "dest": "server/server.js"
+    },
+    {
+      "src": "/(.*)", // Serve static frontend files (if you have a client)
+      "dest": "client/public/$1"
+    }
+  ]
+}
