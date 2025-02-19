@@ -31,6 +31,7 @@ app.use(cors(corsOptions)); // Enable CORS with options
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/test", (req, res) => res.send("Working!"));
 
 app.use('/api', OtpRouter);
 app.use(userRouter);
