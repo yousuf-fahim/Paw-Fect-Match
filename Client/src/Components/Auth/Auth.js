@@ -8,35 +8,35 @@ const Auth = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [otp, setOtp] = useState('')
+  const [otp, setOtp] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState([]);
-  const [signinBtn, setSigninBtn] = useState('Sign in')
-  const [signupBtn, setSignupBtn] = useState('Sign up')
-  const [forgotBtn, setforgotBtn] = useState('Submit')
+  const [signinBtn, setSigninBtn] = useState('Sign in');
+  const [signupBtn, setSignupBtn] = useState('Sign up');
+  const [forgotBtn, setforgotBtn] = useState('Submit');
   const { login, loginError, isLoading } = useLogin();
   const { signup, signupError, signupIsLoading } = useSignup();
-  const [success, setSuccess] = useState(null)
-  const [isForgot, setIsForgot] = useState(false)
-  const [isForgotLoading, setIsForgotLoading] = useState(false)
-  const [showNewPassword, setShowNewPassword] = useState(false)
-  const [newPassword, setNewPassword] = useState("")
-  const [newConfirmPassword, setNewConfirmPassword] = useState("")
+  const [success, setSuccess] = useState(null);
+  const [isForgot, setIsForgot] = useState(false);
+  const [isForgotLoading, setIsForgotLoading] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState('');
+  const [newConfirmPassword, setNewConfirmPassword] = useState('');
 
   useEffect(() => {
     if (loginError) {
-      setErrors(prevErrors => [...prevErrors.slice(-3), loginError]);
+      setErrors((prevErrors) => [...prevErrors.slice(-3), loginError]);
       setTimeout(() => {
-        setErrors(prevErrors => prevErrors.slice(1));
+        setErrors((prevErrors) => prevErrors.slice(1));
       }, 3000);
     }
   }, [loginError]);
 
   useEffect(() => {
     if (signupError) {
-      setErrors(prevErrors => [...prevErrors.slice(-3), signupError]);
+      setErrors((prevErrors) => [...prevErrors.slice(-3), signupError]);
       setTimeout(() => {
-        setErrors(prevErrors => prevErrors.slice(1));
+        setErrors((prevErrors) => prevErrors.slice(1));
       }, 3000);
     }
   }, [signupError]);
@@ -46,9 +46,9 @@ const Auth = () => {
     setName('');
     setEmail('');
     setPassword('');
-    setShowPassword(false)
+    setShowPassword(false);
     setTimeout(() => {
-      setIsForgot(false)
+      setIsForgot(false);
       setErrors([]);
     }, 1000);
   };
@@ -62,7 +62,6 @@ const Auth = () => {
       setSigninBtn('Sign In');
     }, 300);
   };
-
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -78,127 +77,126 @@ const Auth = () => {
     setShowPassword(!showPassword);
   };
 
-  const hanleGenOtp = async (event) => {
+  const handleGenOtp = async (event) => {
     event.preventDefault();
 
     try {
       const response = await axiosInstance.post('/api/genotp', { name, email, password });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        setErrors(prevErrors => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
+      if (response.status !== 200) {
+        const errorData = response.data;
+        setErrors((prevErrors) => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
         setTimeout(() => {
-          setErrors(prevErrors => prevErrors.slice(1));
+          setErrors((prevErrors) => prevErrors.slice(1));
         }, 3000);
       } else {
-        setSuccess('OTP sent successfully')
+        setSuccess('OTP sent successfully');
         setTimeout(() => {
-          setSuccess(null)
+          setSuccess(null);
         }, 3000);
       }
     } catch (error) {
-      setErrors(prevErrors => [...prevErrors.slice(-3), 'Network error']);
+      setErrors((prevErrors) => [...prevErrors.slice(-3), 'Network error']);
       setTimeout(() => {
-        setErrors(prevErrors => prevErrors.slice(1));
+        setErrors((prevErrors) => prevErrors.slice(1));
       }, 3000);
     }
-  }
+  };
 
   const handleForget = async (e) => {
-    e.preventDefault()
-    setforgotBtn('Submitting')
-    setIsForgotLoading(true)
-
+    e.preventDefault();
+    setforgotBtn('Submitting');
+    setIsForgotLoading(true);
 
     try {
       const response = await axiosInstance.post('/api/verifyotp', { email, otp });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        setErrors(prevErrors => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
+      if (response.status !== 200) {
+        const errorData = response.data;
+        setErrors((prevErrors) => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
         setTimeout(() => {
-          setErrors(prevErrors => prevErrors.slice(1));
+          setErrors((prevErrors) => prevErrors.slice(1));
         }, 3000);
       } else {
-        setSuccess('OTP verified. Change your password.')
-        setShowNewPassword(true)
+        setSuccess('OTP verified. Change your password.');
+        setShowNewPassword(true);
         setTimeout(() => {
-          setSuccess(null)
+          setSuccess(null);
         }, 3000);
       }
     } catch (error) {
-      setErrors(prevErrors => [...prevErrors.slice(-3), 'Network error']);
+      setErrors((prevErrors) => [...prevErrors.slice(-3), 'Network error']);
       setTimeout(() => {
-        setErrors(prevErrors => prevErrors.slice(1));
+        setErrors((prevErrors) => prevErrors.slice(1));
       }, 3000);
     } finally {
-      setforgotBtn('Submit')
-      setIsForgotLoading(false)
+      setforgotBtn('Submit');
+      setIsForgotLoading(false);
     }
-  }
+  };
 
-  const hanleForgotOtp = async (event) => {
+  const handleForgotOtp = async (event) => {
     event.preventDefault();
 
     try {
       const response = await axiosInstance.post('/api/forgototp', { email });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        setErrors(prevErrors => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
+      if (response.status !== 200) {
+        const errorData = response.data;
+        setErrors((prevErrors) => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
         setTimeout(() => {
-          setErrors(prevErrors => prevErrors.slice(1));
+          setErrors((prevErrors) => prevErrors.slice(1));
         }, 3000);
       } else {
-        setSuccess('OTP sent successfully')
+        setSuccess('OTP sent successfully');
         setTimeout(() => {
-          setSuccess(null)
+          setSuccess(null);
         }, 3000);
       }
     } catch (error) {
-      setErrors(prevErrors => [...prevErrors.slice(-3), 'Network error']);
+      setErrors((prevErrors) => [...prevErrors.slice(-3), 'Network error']);
       setTimeout(() => {
-        setErrors(prevErrors => prevErrors.slice(1));
+        setErrors((prevErrors) => prevErrors.slice(1));
       }, 3000);
     }
-  }
+  };
 
   const updatePassword = async (e) => {
-    setforgotBtn('Submitting')
-    setIsForgotLoading(true)
-    e.preventDefault()
+    setforgotBtn('Submitting');
+    setIsForgotLoading(true);
+    e.preventDefault();
     try {
       const response = await axiosInstance.put('/update-password', { email, newPassword, newConfirmPassword });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        setErrors(prevErrors => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
+      if (response.status !== 200) {
+        const errorData = response.data;
+        setErrors((prevErrors) => [...prevErrors.slice(-3), errorData.error || 'An error occurred']);
         setTimeout(() => {
-          setErrors(prevErrors => prevErrors.slice(1));
+          setErrors((prevErrors) => prevErrors.slice(1));
         }, 3000);
       } else {
-        setSuccess('Password Updated Successfully.')
-        setNewPassword('')
-        setNewConfirmPassword('')
-        setEmail('')
-        setPassword('')
-        setOtp('')
-        setShowNewPassword(false)
-        setIsForgot(false)
+        setSuccess('Password Updated Successfully.');
+        setNewPassword('');
+        setNewConfirmPassword('');
+        setEmail('');
+        setPassword('');
+        setOtp('');
+        setShowNewPassword(false);
+        setIsForgot(false);
         setTimeout(() => {
-          setSuccess(null)
+          setSuccess(null);
         }, 3000);
       }
     } catch (error) {
-      setErrors(prevErrors => [...prevErrors.slice(-3), 'Network error']);
+      setErrors((prevErrors) => [...prevErrors.slice(-3), 'Network error']);
       setTimeout(() => {
-        setErrors(prevErrors => prevErrors.slice(1));
+        setErrors((prevErrors) => prevErrors.slice(1));
       }, 3000);
     } finally {
-      setforgotBtn('Submit')
-      setIsForgotLoading(false)
+      setforgotBtn('Submit');
+      setIsForgotLoading(false);
     }
-  }
+  };
 
   return (
     <div className="loginSignup-background-container">
@@ -246,7 +244,7 @@ const Auth = () => {
               />
               <button
                 type="button"
-                onClick={hanleGenOtp}
+                onClick={handleGenOtp}
                 className="toggle-otp-btn"
               >
                 Send
@@ -259,86 +257,101 @@ const Auth = () => {
         </div>
 
         <div className="loginSignup-form-container loginSignup-sign-in-container">
-          {!isForgot && <form onSubmit={handleLogin}>
-            <h1>Sign in</h1>
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className="loginSignup-input-field"
-            />
-            <div className="password-container">
+          {!isForgot && (
+            <form onSubmit={handleLogin}>
+              <h1>Sign in</h1>
               <input
-                type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                className="loginSignup-input-field password-field"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                className="loginSignup-input-field"
               />
-              <button
-                type="button"
-                onClick={togglePasswordVisibility}
-                className="toggle-password-btn"
-              >
-                {showPassword ? <i className="fa fa-eye-slash icon-white"></i> : <i className="fa fa-eye icon-white"></i>}
+              <div className="password-container">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  className="loginSignup-input-field password-field"
+                />
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className="toggle-password-btn"
+                >
+                  {showPassword ? <i className="fa fa-eye-slash icon-white"></i> : <i className="fa fa-eye icon-white"></i>}
+                </button>
+              </div>
+              <p onClick={() => setIsForgot(true)} className="loginSignup-forgot-password">
+                Forgot Password
+              </p>
+              <button type="submit" className="loginSignup-btn" disabled={isLoading}>
+                {signinBtn}
               </button>
-            </div>
-            <p onClick={() => setIsForgot(true)} className='loginSignup-forgot-password'>Forgot Password</p>
-            <button type="submit" className="loginSignup-btn" disabled={isLoading}>
-              {signinBtn}
-            </button>
-          </form>}
+            </form>
+          )}
 
-          {isForgot &&
+          {isForgot && (
             <>
               <form onSubmit={!showNewPassword ? handleForget : updatePassword}>
                 <h1>Forgot Password</h1>
-                {!showNewPassword && <><input
-                  type="text"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email"
-                  className="loginSignup-input-field"
-                />
-                  <div className="password-container">
+                {!showNewPassword && (
+                  <>
                     <input
-                      type={'text'}
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                      placeholder="OTP"
-                      className="loginSignup-input-field password-field"
+                      type="text"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Email"
+                      className="loginSignup-input-field"
                     />
-                    <button
-                      type="button"
-                      onClick={hanleForgotOtp}
-                      className="toggle-otp-btn"
-                    >
-                      Send
-                    </button>
-                  </div></>}
+                    <div className="password-container">
+                      <input
+                        type={'text'}
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
+                        placeholder="OTP"
+                        className="loginSignup-input-field password-field"
+                      />
+                      <button
+                        type="button"
+                        onClick={handleForgotOtp}
+                        className="toggle-otp-btn"
+                      >
+                        Send
+                      </button>
+                    </div>
+                  </>
+                )}
 
-                {showNewPassword && <><input
-                  type="text"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="New Password"
-                  className="loginSignup-input-field"
-                />
-                  <input
-                    type="text"
-                    value={newConfirmPassword}
-                    onChange={(e) => setNewConfirmPassword(e.target.value)}
-                    placeholder="Confirm Password"
-                    className="loginSignup-input-field"
-                  />
-                </>}
+                {showNewPassword && (
+                  <>
+                    <input
+                      type="text"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      placeholder="New Password"
+                      className="loginSignup-input-field"
+                    />
+                    <input
+                      type="text"
+                      value={newConfirmPassword}
+                      onChange={(e) => setNewConfirmPassword(e.target.value)}
+                      placeholder="Confirm Password"
+                      className="loginSignup-input-field"
+                    />
+                  </>
+                )}
 
-                <p onClick={() => setIsForgot(false)} className='loginSignup-forgot-password'>Back to Sign In</p>
+                <p onClick={() => setIsForgot(false)} className="loginSignup-forgot-password">
+                  Back to Sign In
+                </p>
                 <button type="submit" className="loginSignup-btn" disabled={isForgotLoading}>
                   {forgotBtn}
                 </button>
-              </form> </>}
+              </form>
+            </>
+          )}
         </div>
 
         <div className="loginSignup-overlay-container">
@@ -378,9 +391,11 @@ const Auth = () => {
             {error}
           </div>
         ))}
-        {success && <div className='auth-error profile-Succ-msg'>
-          {success}
-        </div>}
+        {success && (
+          <div className="auth-error profile-Succ-msg">
+            {success}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -14,13 +14,9 @@ const AdminRouter = require('./Routes/AdminRoute'); // Import AdminRoute
 
 const app = express();
 
-app.get("/api/test", (req, res) => {
-  res.json({ message: "API is working!" });
-});
-
 // CORS configuration
 const corsOptions = {
-    origin: ['http://localhost:3000', 'https://pawfect.fai.codes', 'https://pawfect-match-b8jp.onrender.com/' ], // Replace with your allowed origins
+    origin: ['http://localhost:3000', 'https://paw-fect-match.netlify.app'], // Replace with your allowed origins
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204
@@ -31,7 +27,6 @@ app.use(cors(corsOptions)); // Enable CORS with options
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/test", (req, res) => res.send("Working!"));
 
 app.use('/api', OtpRouter);
 app.use(userRouter);
