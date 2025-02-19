@@ -2,17 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "server/server.js", // Path to your Node.js entry file
+      "src": "server/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)", // Route API requests to the backend
+      "src": "/api/(.*)",
       "dest": "server/server.js"
     },
     {
-      "src": "/(.*)", // Serve static frontend files (if you have a client)
+      "src": "/(.*)",
       "dest": "client/public/$1"
     }
   ]
